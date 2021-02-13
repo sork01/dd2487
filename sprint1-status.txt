@@ -1,0 +1,56 @@
+### Goals
+
+* Be able to create the state of the game.
+|   status: complete
+|
+|   entry point: .api/create-game (pure delegation to .construct/create-game)
+
+
+
+* Be able to play minion cards.
+|   status: complete
+|
+|   entry point: .api/play-minion-card
+
+
+
+* A minion should be able to attack another minion.
+|   status: complete
+|
+|   entry point: .api/attack-minion-with-minion
+
+
+
+* A minion should be able to attack the other hero.
+|   status: complete
+|
+|   entry point: .api/attack-hero-with-hero
+
+
+
+* A player should be able to end the turn.
+|   status: complete
+|
+|   entry point: .core/end-turn
+
+
+
+* Hand/Deck mechanics such as drawing cards and fatigue.
+|   status: complete
+|
+|   entry point: .api/draw-card
+
+
+
+* All the functionality required for the minions listed below.
+|   status: complete
+|
+|   Observe that hero powers, spells and weapons are not included and that
+|   at the moment "Spell power" does not mean anything.
+|
+|   ### Cards to implement:
+|   * Dalaran Mage (http://hearthstone.gamepedia.com/Dalaran_Mage)
+|   * Defender (http://hearthstone.gamepedia.com/Defender)
+|   * Imp (http://hearthstone.gamepedia.com/Imp)
+|   * Ogre Magi (http://hearthstone.gamepedia.com/Ogre_Magi)
+|   * War Golem (http://hearthstone.gamepedia.com/War_Golem)

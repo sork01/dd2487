@@ -1,0 +1,42 @@
+Goals and notes
+
+Övrigt:
+  done: Things should cost mana
+  done: mana should be increased every other turn
+
+Hero powers are introduced.
+  done: add the :hero-power key (from definitions) to hero maps
+  done: implement something like (use-hero-power [state player-id target])
+  done: hero powers should only be able to be used once per turn
+
+Deathrattle is an ability where the stated effect occurs when the minion is destroyed. (https://hearthstone.gamepedia.com/Deathrattle)
+  done: fire the event trigger when minions are destroyed
+  done: implement the specific deathrattle functions on each relevant card
+
+Battlecry is an ability where a particular effect activates when the card with the Battlecry is played directly from the hand. (https://hearthstone.gamepedia.com/Battlecry)
+  done: once mana is working, test implementation in play-minion-card
+
+A Secret is a spell card that is cast normally but has a delayed, hidden effect, which only takes place when a specific event occurs. (https://hearthstone.gamepedia.com/Secret)
+  done: add key-value pair :secrets [] to player maps
+  done: implement something like (play-secret-card [state player-id card])
+
+A trigger effect for damage is needed for Acolyte of Pain (https://hearthstone.gamepedia.com/Acolyte_of_Pain) and Frothing Berserker (https://hearthstone.gamepedia.com/Frothing_Berserker)
+  Done
+
+A trigger effect for attack is needed for Snake Trap (https://hearthstone.gamepedia.com/Snake_Trap)
+  done: implement the snake trap event listener (before-attack-event or after-attack-event, something like that)
+
+Randomness is introduced. Use ysera.random for this.
+  done: implement deathrattle function that takes over a random opposing minion
+
+Freeze is an ability that marks a minion or hero as Frozen. Frozen characters miss their next possible attack. After this, the Frozen status is removed.
+  done: add the character property :frozen true/false
+  done: implement something like (freeze-character [state entity-id]), (unfreeze-character [state entity-id] ?
+  done: check the :frozen status in valid-attack?
+  done: clear the :frozen status in end-turn (is this correct?)
+
+When a minion switches side from cards like Cabal Shadow Priest, Mind Control and Sylvanas Windrunner they will be sleepy for one turn.
+  done: Sylvanas deathrattle function
+
+Entities should trigger in the order they were played.
+  This should work but we have no tests for this at the moment.

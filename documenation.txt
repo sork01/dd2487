@@ -1,0 +1,18 @@
+IDs:
+  By default IDs are strings containing only a number, e.g. "23", which signifies the number automatically generated for them.
+  You are also able to assign your own ids, such as "m1". Please notice that if you define a minion id such as "m11" it will have the same priorities as the
+  automatically generated id "11". Using higher values will make this a non-issue.
+valid-targets:
+  Is checked whenever a minion, spell or weapon is played.
+    If not present in the card definition, no target is required.
+
+    If present it should be a function that takes the state and the player who is about to play the card
+      If it returns nil, no target is valid, but the card can still be played (like when no 7 attack minion is present for big game hunter)
+      If it returns a list of ids, the target-id of the played card MUST be in the list (if a 7 attack minion exists and big game hunter is played, it MUST target at least one of them.)
+
+
+Gotcha's:
+  Changing the order of definitions can break tests that depend on randomness.
+    Example: Say the map entry for "Ancient Watcher" is located below the the entry for "Imp".
+             Moving the "Ancient Watcher" up above the "Imp" may cause a random choice of minion
+             to become different even if the seed used in the test is unchanged.
